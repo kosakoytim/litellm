@@ -58,6 +58,11 @@ services:
       - "--storage.tsdb.retention.time=15d"
     restart: always
 
+networks:
+  default:
+    external: true
+    name: dokploy-network
+
 volumes:
   prometheus_data:
     driver: local
