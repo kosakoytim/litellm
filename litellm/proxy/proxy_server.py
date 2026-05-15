@@ -1715,6 +1715,8 @@ model_max_budget_limiter = _PROXY_VirtualKeyModelMaxBudgetLimiter(
     dual_cache=user_api_key_cache
 )
 litellm.logging_callback_manager.add_litellm_callback(model_max_budget_limiter)
+from litellm.proxy.custom_hooks.deepseek_reasoning_hook import deepseek_reasoning_hook
+litellm.logging_callback_manager.add_litellm_callback(deepseek_reasoning_hook)
 redis_usage_cache: Optional[RedisCache] = (
     None  # redis cache used for tracking spend, tpm/rpm limits
 )
